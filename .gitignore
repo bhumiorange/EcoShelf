@@ -1,0 +1,4 @@
+ecoshelf-frontend/node_modules/
+ecoshelf-backend/venv/
+ecoshelf-backend/__pycache__/
+.env
