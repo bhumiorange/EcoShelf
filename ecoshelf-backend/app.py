@@ -6,9 +6,20 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-# ── Load trained model ───────────────────────────────────────────
-with open("retail_waste_model.pkl", "rb") as f:
-    model = pickle.load(f)
+# ── Load trained model (Production-Ready) ────────────────────────
+import os  # <-- Add this at the TOP with other imports if not present
+
+model_path = os.path.join(os.path.dirname(__file__), "retail_waste_model.pkl")
+try:
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
+    print(f"✅ Model loaded from: {model_path}")  # Optional debug line
+except FileNotFoundError:
+    # Fallback for local development
+    with open("retail_waste_model.pkl", "rb") as f:
+        model = pickle.load(f)
+    print("✅ Model loaded from local directory")  # Optional debug line
+    print(f"Model type verified: {type(model)}")  # Check sklearn/keras/etc
 
 # ── Helper: decide shelf position ────────────────────────────────
 def get_shelf_priority(risk: str, category: int | str, temperature_c: float) -> str:
