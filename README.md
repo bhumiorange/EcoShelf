@@ -52,8 +52,11 @@ EcoShelf simplifies this with:
 ## Meet the Team 💫  
 This project was crafted with love and late nights by:  
 ✨ **Bhumika** 
+
 ✨ **Dishita**  
+
 ✨ **Divya**  
+
 ✨ **Nidhi**  
 
 Together, we built EcoShelf to bring practical tech to real-world stores.
